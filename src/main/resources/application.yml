@@ -1,0 +1,8 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /wrbsms
+  connection-timeout: 60000
+spring:
+  profiles:
+    active: '@package.environment@'
