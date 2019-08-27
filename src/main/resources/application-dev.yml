@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: sms
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      name: sms
+      url: jdbc:mysql://192.168.16.131:3306/sms?autoReconnect=true&useUnicode=true&zeroDateTimeBehavior=convertToNull&useServerPrepStmts=false&rewriteBatchedStatements=true
+      username: root
+      password: 123456
+      initial-size: 4
+      max-active: 32
+      max-wait: 60000
+      min-idle: 4
+      max-pool-prepared-statement-per-connection-size: 20
+      time-between-eviction-runs-millis: 3000
+      min-evictable-idle-time-millis: 300000
+      pool-prepared-statements: true
+      test-while-idle: true
+      validation-query: select 1
