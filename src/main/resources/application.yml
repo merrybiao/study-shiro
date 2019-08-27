@@ -1,7 +1,0 @@
-server:
-  port: 8888
-  servlet:
-    context-path: /wrbsms
-spring:
-  profiles:
-    active: '@package.environment@'
