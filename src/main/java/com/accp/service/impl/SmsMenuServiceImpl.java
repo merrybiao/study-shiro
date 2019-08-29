@@ -343,7 +343,6 @@ public class SmsMenuServiceImpl extends ServiceImpl<SmsMenuMapper, SmsMenu> impl
 		List<Long> menuIds = roleMenuMapper.selectList(query1).stream().filter(Objects::nonNull).map(roleMenu -> {
 			return roleMenu.getMenuId();
 		}).collect(Collectors.toList());
-
 		if (menuIds == null || menuIds.isEmpty())
 			return new ArrayList<>();
 
@@ -411,5 +410,4 @@ public class SmsMenuServiceImpl extends ServiceImpl<SmsMenuMapper, SmsMenu> impl
 		}
 		return flag ? 1 : 0;
 	}
-
 }

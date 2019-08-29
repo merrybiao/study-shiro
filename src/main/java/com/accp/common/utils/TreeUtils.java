@@ -9,7 +9,7 @@ import com.accp.dto.SmsMenuDto;
 /**
  * 权限数据处理
  * 
- * @author Luyuan
+ * @author wubiao
  */
 public class TreeUtils {
 	/**

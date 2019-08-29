@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html  lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--360浏览器优先以webkit内核解析-->
+    <title>若依介绍</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}" rel="stylesheet"/>
+    <link href="../static/css/main/animate.min.css" th:href="@{/css/main/animate.min.css}" rel="stylesheet"/>
+    <link href="../static/css/main/style.min862f.css" th:href="@{/css/main/style.min862f.css}" rel="stylesheet"/>
+</head>
+
+<body class="gray-bg">
+    <div class="row  border-bottom white-bg dashboard-header">
+        <div class="col-sm-5">
+            <h2>关于SMS管理系统</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;该SMS管理系统是根据开源项目若依后台管理系统改编的，为了尊重作者以及作者的开源项目，现将若依的项目连接分享在此~</p>
+            <p>
+                <a class="btn btn-success btn-outline" href="https://gitee.com/y_project/RuoYi" target="_blank">
+                    <i class="fa fa-cloud"> </i> 访问码云
+                </a>
+                <a class="btn btn-white btn-bitbucket" href="http://ruoyi.vip" target="_blank">
+                    <i class="fa fa-home"></i> 访问若依
+                </a>
+                &nbsp;&nbsp;
+                <i class="fa fa-send-o"></i> 官网：<a href="http://www.ruoyi.vip" target="_blank">http://www.ruoyi.vip</a>
+            </p>
+        </div>
+        
+        <div class="col-sm-4">
+            <h2>技术选型：</h2>
+            <ol>
+                <li>核心框架：Spring Boot。</li>
+                <li>安全框架：Apache Shiro。</li>
+                <li>模板引擎：Thymeleaf。</li>
+                <li>持久层框架：MyBatis-plus。</li>
+                <li>缓存队列：Redis。</li>
+                <li>短信存储：ElasticSearch</li>
+				<li>定时任务：Quartz。</li>
+				<li>数据库：Mysql</li>
+                <li>数据库连接池：Druid。</li>
+                <li>工具类：Fastjson。</li>
+                <li>更多……</li>
+            </ol>
+        </div>
+        
+        
+        <div class="col-sm-5">
+            <h2>关于SMS的设想：</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;目前SMS管理系统只是搭建了一个雏形框架，为了能够丰满整个项目，做了一些设想，还需后续的同事待完善~</p>
+            <ol>
+                <li>SMS项目可以作为公司对外的短信平台，公司内有短信需求的项目可以在该平台上申请App，方便管理维护~></li>
+                <li>对外提供API接口时请尽量使用Swagger注解，以便快速生成文档还能在线测试~</li>
+                <li>对Redis队列中的短信量做监控展示</li>
+                <li>对某一段时间内同一手机号码做策略限制（例：同一手机号码一天内最多只能发送5条短信）</li>
+                <li>对定时任务Quartz做自定义管理，根据实际情况调整Quartz的频率</li>
+                <li>对ES中的短信量做多维度的报表展示（Chartjs）</li>
+                <li>目前想到的就这么多……</li>
+            </ol>
+        </div>
+
+    </div>
+    <div class="wrapper wrapper-content">
+     
+    </div>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/ajax/libs/layer/layer.min.js}"></script>
+    <script type="text/javascript">
+	    $('#pay-qrcode').click(function(){
+	        var html=$(this).html();
+	        parent.layer.open({
+	            title: false,
+	            type: 1,
+	            closeBtn:false,
+	            shadeClose:true,
+	            area: ['600px', 'auto'],
+	            content: html
+	        });
+	    });
+    </script>
+</body>
+</html>

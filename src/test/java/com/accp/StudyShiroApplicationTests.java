@@ -1,5 +1,7 @@
 package com.accp;
 
+import java.io.File;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,18 @@ public class StudyShiroApplicationTests {
 	public void contextLoads() {
 		SmsUser selectUserById = sms.selectUserById(1L);
 		System.out.println(JSON.toJSONString(selectUserById));
+	}
+	
+	@Test
+	public void contextLoads2() {
+	
+	}
+	
+	public static void main(String[] args) {
+		File file = new File("/E:/sts_workspace/study_shiro/src/main/resources/templates/test.html");
+		boolean exists = file.exists();
+		System.out.println(exists);
+	
 	}
 
 }

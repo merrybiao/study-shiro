@@ -1,0 +1,203 @@
+html {
+	height:100%
+}
+body.signin {
+	height:auto;
+	background:url(../img/login-background.jpg) no-repeat center fixed;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover;
+	color:rgba(255,255,255,.95)
+}
+.signinpanel {
+	width:750px;
+	height: 600px;
+	margin:5% auto 0
+}
+.signinpanel .logopanel {
+	float:none;
+	width:auto;
+	padding:0;
+	background:0 0
+}
+.signinpanel .signin-info ul {
+	list-style:none;
+	padding:0;
+	margin:20px 0
+}
+.signinpanel .form-control {
+	display:block;
+	margin-top:15px;
+	color:#333
+}
+.signinpanel .uname {
+	background:#fff url(../img/user.png) no-repeat 95% center;
+	color:#333
+}
+.signinpanel .pword {
+	background:#fff url(../img/locked.png) no-repeat 95% center;
+	color:#333
+}
+.signinpanel .code {
+    background: #fff no-repeat 95% center;
+    color:#333; 
+    margin:0 0 5px 0;
+}
+.signinpanel .btn {
+	margin-top:15px
+}
+.signinpanel form {
+	background:rgba(255,255,255,.2);
+	border:1px solid rgba(255,255,255,.3);
+	-moz-box-shadow:0 3px 0 rgba(12,12,12,.03);
+	-webkit-box-shadow:0 3px 0 rgba(12,12,12,.03);
+	box-shadow:0 3px 0 rgba(12,12,12,.03);
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:20px;
+	padding:30px
+}
+
+.signupForm input[type="text"], .signupForm input[type="password"], .signupForm input[type="email"], .signupForm input[type="tel"], .signupForm input[type="url"], .signupForm textarea, .signupForm button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+
+.signupForm {
+	background:#F9F9F9;
+	padding:25px;
+	margin:5px 0;
+}
+
+.signupForm h3 {
+	color: #F96;
+	display: block;
+	font-size: 30px;
+	font-weight: 400;
+}
+
+.signupForm h4 {
+	margin:5px 0 15px;
+	display:block;
+	font-size:13px;
+}
+
+fieldset {
+	border: medium none !important;
+	margin: 0 0 10px;
+	min-width: 100%;
+	padding: 0;
+	width: 100%;
+}
+
+.signupForm input[type="text"], .signupForm input[type="password"], .signupForm input[type="email"], .signupForm input[type="tel"], .signupForm input[type="url"], .signupForm textarea {
+	width:80%;
+	border:1px solid #CCC;
+	/* background:#FFF; */
+	/* margin:0 0 5px; */
+	font-size: 14px;
+	padding:10px;
+	border-radius: 20px;
+}
+
+.signupForm input[type="text"]:hover, .signupForm input[type="password"]:hover, .signupForm input[type="email"]:hover, .signupForm input[type="tel"]:hover, .signupForm input[type="url"]:hover, .signupForm textarea:hover {
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:1px solid #AAA;
+}
+
+.signup-footer {
+	border-top:solid 1px rgba(255,255,255,.3);
+	margin:20px 0;
+	padding-top:15px
+}
+@media screen and (max-width:768px) {
+	.signinpanel,.signuppanel {
+	margin:0 auto;
+	width:420px!important;
+	padding:20px
+}
+.signinpanel form {
+	margin-top:20px
+}
+.signup-footer,.signuppanel .form-control {
+	margin-bottom:10px
+}
+.signup-footer .pull-left,.signup-footer .pull-right {
+	float:none!important;
+	text-align:center
+}
+.signinpanel .signin-info ul {
+	display:none
+}
+}@media screen and (max-width:320px) {
+	.signinpanel,.signuppanel {
+	margin:0 20px;
+	width:auto
+}
+}
+/*
+鐧诲綍鐣岄潰check鏍峰紡
+*/
+.checkbox-custom {
+    position: relative;
+    padding: 0 15px 0 25px;
+    margin-bottom: 7px;
+    display: inline-block;
+}
+/*
+灏嗗垵濮嬬殑checkbox鐨勬牱寮忔敼鍙�
+*/
+.checkbox-custom input[type="checkbox"] {
+    opacity: 0; /*灏嗗垵濮嬬殑checkbox闅愯棌璧锋潵*/
+    position: absolute;
+    cursor: pointer;
+    z-index: 2;
+    margin: -6px 0 0 0;
+    top: 50%;
+    left: 3px;
+}
+/*
+璁捐鏂扮殑checkbox锛屼綅缃�
+*/
+.checkbox-custom label:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -9px;
+    width: 18px;
+    height: 17px;
+    display: inline-block;
+    border-radius: 2px;
+    border: 1px solid #bbb;
+    background: #fff;
+}
+/*
+鐐瑰嚮鍒濆鐨刢heckbox锛屽皢鏂扮殑checkbox鍏宠仈璧锋潵
+*/
+.checkbox-custom input[type="checkbox"]:checked +label:after {
+    position: absolute;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    content: "\e013";
+    top: 42%;
+    left: 3px;
+    margin-top: -5px;
+    font-size: 11px;
+    line-height: 1;
+    width: 16px;
+    height: 16px;
+    color: #333;
+}
+.checkbox-custom label {
+    cursor: pointer;
+    line-height: 1.2;
+    font-weight: normal; /*鏀瑰彉浜唕ememberme鐨勫瓧浣�*/
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.btn {
+	width: 80%;
+    border-radius: 30px;
+}

@@ -77,4 +77,8 @@ public class CharsetKit {
 	public static String systemCharset() {
 		return Charset.defaultCharset().name();
 	}
+	
+	public static void main(String[] args) {
+		System.out.println(systemCharset() );
+	}
 }

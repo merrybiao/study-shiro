@@ -17,6 +17,6 @@ public class UserController {
        //将数据存入model
        model.addAttribute("name","路西法");
        //返回test.html
-       return "test";
+       return "login";
    }
 }

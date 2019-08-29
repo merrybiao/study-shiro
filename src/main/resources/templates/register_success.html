@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html  lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>注册成功-SMS短信管理系统</title>
+    <meta name="keywords" content="注册成功,SMS">
+    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}" rel="stylesheet"/>
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet"/>
+    <link href="../static/ruoyi/css/ry-ui.css" th:href="@{/ruoyi/css/ry-ui.css?v=3.3.0}" rel="stylesheet"/>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <link rel="shortcut icon" href="../static/favicon.ico" th:href="@{favicon.ico}"/>
+    <style type="text/css">label.error { position:inherit;  }</style>
+    <script>
+        if(window.top!==window.self){window.top.location=window.location};
+    </script>
+</head>
+
+<body class="signin">
+
+    <div class="signinpanel">
+        <div class="row">
+            <strong>恭喜您注册成功！ <a href="login">立即登录 &raquo;</a></strong>
+        </div>
+    </div>
+
+<script th:inline="javascript"> var ctx = [[@{/}]]; var captchaType = [[${captchaType}]]; </script>
+<!-- 全局js -->
+<script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<!-- 验证插件 -->
+<script src="../static/ajax/libs/validate/jquery.validate.min.js" th:src="@{/ajax/libs/validate/jquery.validate.min.js}"></script>
+<script src="../static/ajax/libs/validate/messages_zh.min.js" th:src="@{/ajax/libs/validate/messages_zh.min.js}"></script>
+<script src="../static/ajax/libs/layer/layer.min.js" th:src="@{/ajax/libs/layer/layer.min.js}"></script>
+<script src="../static/ajax/libs/blockUI/jquery.blockUI.js" th:src="@{/ajax/libs/blockUI/jquery.blockUI.js}"></script>
+<script src="../static/ruoyi/js/ry-ui.js" th:src="@{/ruoyi/js/ry-ui.js?v=3.3.0}"></script>
+</body>
+</html>
