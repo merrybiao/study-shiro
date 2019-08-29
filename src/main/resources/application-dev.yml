@@ -1,6 +1,8 @@
 spring:
   application:
     name: sms
+  thymeleaf:
+    cache: false
   data:
     elasticsearch:
       cluster-name: my-application

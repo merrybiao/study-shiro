@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.accp.base.BaseController;
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
 
@@ -25,7 +26,7 @@ import com.google.code.kaptcha.Producer;
  */
 @Controller
 @RequestMapping("/captcha")
-public class CaptchaController {
+public class CaptchaController extends BaseController {
 	@Resource(name = "captchaProducer")
 	private Producer captchaProducer;
 

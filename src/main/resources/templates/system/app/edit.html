@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+	<th:block th:include="include :: header('编辑App')" />
+</head>
+<body class="white-bg">
+	<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+		<form class="form-horizontal m"  id="form-app-edit" th:object="${smsApp}">
+			<input id="id" name="id" type="hidden" th:value="*{id}" >
+			<input id="userId" name="userId" type="hidden" th:value="*{userId}" />
+			<div class="form-group">
+				<label class="col-sm-3 control-label"><span
+					style="color: red;">*</span>应用ID：</label>
+				<div class="col-sm-8">
+					<input id="appId" name="appId" class="form-control" type="text"
+						th:value="*{appId}" readonly="readonly">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label"><span
+					style="color: red;">*</span>应用名称：</label>
+				<div class="col-sm-8">
+					<input id="appName" name="appName" class="form-control" type="text" th:value="*{appName}"
+						required>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label">负责人：</label>
+				<div class="col-sm-8">
+					<input id="contactName" name="contactName" class="form-control"
+						type="text" th:value="*{contactName}" required>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label">联系电话：</label>
+				<div class="col-sm-8">
+					<input id="mobileNo" name="mobileNo" class="form-control"
+						type="text" th:value="*{mobileNo}" required>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label">私钥：</label>
+				<div class="col-sm-8">
+					<textarea id="privateKey" name="privateKey" autocomplete="off"
+						maxlength="500" class="form-control" rows="5">[[*{privateKey}]]</textarea>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label">公钥：</label>
+				<div class="col-sm-8">
+					<textarea id="publicKey" name="publicKey" autocomplete="off"
+						maxlength="500" class="form-control" rows="5">[[*{publicKey}]]</textarea>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label">备注：</label>
+				<div class="col-sm-8">
+					<textarea id="remark" name="remark" autocomplete="off"
+						maxlength="500" class="form-control" rows="3">[[*{remark}]]</textarea>
+				</div>
+			</div>
+
+		</form>
+	</div>
+	<th:block th:include="include :: footer" />
+	 <script>
+        var prefix = ctx + "system/app";
+        
+        $("#form-app-edit").validate({
+        	onkeyup: false,
+        	rules:{
+        		appId:{
+        			required:true,
+        		},
+        		appName:{
+        			remote: {
+                        url: prefix + "/checkAppNameUnique",
+                        type: "post",
+                        dataType: "json",
+                        data: {
+                        	"id": function() {
+                                return $("#id").val();;
+                            },
+                        	"appName" : function() {
+                                return $("input[name='appName']").val();
+                            }
+                        },
+                        dataFilter: function(data, type) {
+                        	return $.validate.unique(data);
+                        }
+                    }
+        		}
+        	},
+        	messages: {
+                "appName": {
+                    remote: "应用名称已存在"
+                }
+            },
+            focusCleanup: true
+        });
+        
+        function submitHandler() {
+	        if ($.validate.form()) {
+	            $.operate.save(prefix + "/edit", $('#form-app-edit').serialize());
+	        }
+	    }
+
+        
+    </script>
+</body>
+</html>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.accp.base.BaseController;
 import com.accp.common.utils.ServletUtils;
 import com.accp.common.utils.StringUtils;
 import com.accp.freamwork.web.domain.AjaxResult;
@@ -22,7 +23,7 @@ import com.accp.freamwork.web.domain.AjaxResult;
  * @author Luyuan
  */
 @Controller
-public class LoginController {
+public class LoginController extends BaseController {
 
 	@GetMapping("/login")
 	public String login(HttpServletRequest request, HttpServletResponse response) {
@@ -41,13 +42,13 @@ public class LoginController {
 		Subject subject = SecurityUtils.getSubject();
 		try {
 			subject.login(token);
-			return AjaxResult.success("登陆成功");
+			return success("登录成功~");
 		} catch (AuthenticationException e) {
 			String msg = "用户或密码错误";
 			if (StringUtils.isNotEmpty(e.getMessage())) {
 				msg = e.getMessage();
 			}
-			return AjaxResult.success();
+			return error(msg);
 		}
 	}
 

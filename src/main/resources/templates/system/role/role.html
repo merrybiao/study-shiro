@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+	<th:block th:include="include :: header('角色列表')" />
+</head>
+<body class="gray-bg">
+	<div class="container-div">
+		<div class="row">
+			
+			<div class="btn-group-sm" id="toolbar" role="group">
+			</div>
+	        
+	        <div class="col-sm-12 select-table table-striped">
+			    <table id="bootstrap-table" data-mobile-responsive="true"></table>
+			</div>
+		</div>
+	</div>
+	<th:block th:include="include :: footer" />
+	<script th:inline="javascript">
+		/* var editFlag = [[${@permission.hasPermi('system:role:edit')}]]; */
+		var prefix = ctx + "system/role";
+		
+
+		$(function() {
+		    var options = {
+		        url: prefix + "/list",
+		        updateUrl: prefix + "/edit/{id}",
+		        modalName: "角色",
+		        columns: [{
+		            checkbox: true
+		        },
+		        {
+		            field: 'role_id',
+		            title: '角色编号'
+		        },
+		        {
+		            field: 'role_type',
+		            title: '权限标识',
+		            sortable: true
+		        },
+		        {
+		            field: 'role_name',
+		            title: '角色名称',
+		            sortable: true
+		        },
+		        {
+		            title: '操作',
+		            align: 'center',
+		            formatter: function(value, row, index) {
+		                var actions = [];
+		                if(row.role_id != 1){
+		                	actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.role_id + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+		                }
+		                return actions.join('');
+		            }
+		        }]
+		    };
+		    $.table.init(options);
+		});
+		
+	</script>
+</body>
+</html>

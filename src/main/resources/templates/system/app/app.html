@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+	<th:block th:include="include :: header('应用列表')" />
+	<th:block th:include="include :: layout-latest-css" />
+</head>
+<body class="gray-bg">
+	<div class="container-div">
+		<div class="row">
+			<div class="col-sm-12 search-collapse">
+				<form id="app-form">
+					<div class="select-list">
+						<ul>
+							<li>
+								应用名称：<input type="text" name="appName"/>
+							</li>
+							<li>
+								手机号码：<input type="text" name="mobileNo"/>
+							</li>
+							<li>
+								<a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+							    <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"  ><i class="fa fa-refresh"></i>&nbsp;重置</a>
+							</li>
+						</ul>
+					</div>
+				</form>
+			</div>
+			
+	        <div class="btn-group-sm" id="toolbar" role="group">
+		        <a class="btn btn-success" onclick="$.operate.add(0)" shiro:hasPermission="system:app:add">
+                    <i class="fa fa-plus"></i> 新增
+                </a>
+	             <!-- <a class="btn btn-primary btn-edit disabled" onclick="$.operate.editTab()" shiro:hasPermission="system:app:edit">
+		            <i class="fa fa-edit"></i> 修改
+		        </a>
+	            <a class="btn btn-danger btn-del disabled" onclick="$.operate.removeAll()" shiro:hasPermission="system:app:remove">
+	                <i class="fa fa-remove"></i> 删除
+	            </a> -->
+	        </div>
+	        
+	        <div class="col-sm-12 select-table table-striped">
+			    <table id="bootstrap-table" data-mobile-responsive="true"></table>
+			</div>
+		</div>
+	</div>
+	
+	<th:block th:include="include :: footer" />>
+	<script th:inline="javascript">
+		var editFlag = [[${@permission.hasPermi('system:app:edit')}]];
+		var removeFlag = [[${@permission.hasPermi('system:app:remove')}]];
+		var prefix = ctx + "system/app";
+
+		$(function() {
+			var options = {		    	
+			        expandAll: false,
+			        expandFirst: false,
+			        url: prefix + "/list",
+			        createUrl: prefix + "/add",
+			        updateUrl: prefix + "/edit/{id}",
+			        removeUrl: prefix + "/remove/{id}",
+			        sortName: "create_time",
+			        sortOrder: "desc",
+			        modalName: "应用",
+			        columns: [{
+			            checkbox: true
+			        },
+			        {
+			            field: 'app_id',
+			            title: 'AppId',
+			            sortable: true
+			        },
+			        {
+			            field: 'app_name',
+			            title: 'AppName'
+			        },
+			        {
+			            field: 'user_id',
+			            title: '用户ID',
+			            visible: false
+			        },
+			        {
+			            field: 'contact_name',
+			            title: '负责人',
+			            visible: true
+			        },
+			        {
+			            field: 'mobile_no',
+			            title: '联系电话'
+			        },
+			        {
+			        	field: 'private_key',
+			        	title: '私钥',
+			        	visible: true
+			        },
+			        {
+			        	title: '公钥',
+			        	field: 'public_key',
+			        	visible: true
+			        },
+			        {
+			            field: 'create_time',
+			            title: '创建时间',
+			            sortable: true
+			        },
+			        {
+			            field: 'update_time',
+			            title: '更新时间',
+			            sortable: true
+			        },
+			        {
+			            title: '操作',
+			            align: 'center',
+			            formatter: function(value, row, index) {
+			                var actions = [];
+			                actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.id + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+			                actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.id + '\')"><i class="fa fa-remove"></i>删除</a> ');
+			                return actions.join('');
+			            }
+			        }]
+			    };
+			    $.table.init(options); 
+		});
+	</script>
+</body>
+</html>
