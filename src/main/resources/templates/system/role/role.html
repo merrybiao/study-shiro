@@ -17,7 +17,7 @@
 	</div>
 	<th:block th:include="include :: footer" />
 	<script th:inline="javascript">
-		/* var editFlag = [[${@permission.hasPermi('system:role:edit')}]]; */
+		var editFlag = [[${@permission.hasPermi('system:role:edit')}]]; 
 		var prefix = ctx + "system/role";
 		
 

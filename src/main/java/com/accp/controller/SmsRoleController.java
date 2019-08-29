@@ -34,7 +34,7 @@ public class SmsRoleController extends BaseController {
     @Autowired
     private SmsMenuService smsMenuService;
 
-    @RequiresPermissions("system:role:view")
+    //@RequiresPermissions("system:role:view")
     @GetMapping()
     public String role(){
         return prefix + "/role";

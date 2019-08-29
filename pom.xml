@@ -59,6 +59,7 @@
 			<artifactId>mybatis-plus-boot-starter</artifactId>
 			<version>${mybatis-plus-boot.version}</version>
 		</dependency>
+
 		<!-- mybatis-plus 代码生成工具 -->
 		<dependency>
 	      <groupId>com.baomidou</groupId>
@@ -204,6 +205,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+		  <groupId>org.apache.maven.plugins</groupId>
+		  <artifactId>maven-resources-plugin</artifactId>
+		  <version>3.1.0</version>
+		  <type>maven-plugin</type>
 		</dependency>
 	</dependencies>
 
